@@ -1,6 +1,7 @@
 const axios = require('axios');
+const Enum = require('enum');
 
-class Messari {
+class Client {
   constructor(asset) {
     this.asset = asset;
   }
@@ -19,11 +20,50 @@ class Messari {
     
     try {
       return axios.get(url)
-        .then(response => response.data);
+        .then(response => new Response(response.data));
     } catch(e) {
       throw new Error(e);
     }
   }
 }
 
-module.exports = Messari;
+class Response {
+  candleProps = new Enum({
+    TIMESTAMP: 0,
+    OPEN: 1,
+    HIGH: 2,
+    LOW: 3,
+    CLOSE: 4,
+    VOLUME: 5
+  });
+  
+  constructor({ data, status }) {
+    this._data = data;
+    this._symbol = data.symbol;
+    this._name = data.name;
+    this._priceSeries = data.values;
+  }
+
+  get data() {
+    return this._data;
+  }
+
+  get symbol() {
+    return this._symbol;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  get priceSeries() {
+    return this._priceSeries;
+  }
+
+  get closingPrices() {
+    return this._priceSeries.map(candle => candle[this.candleProps.CLOSE.value]);
+  }
+
+}
+
+module.exports = Client;
