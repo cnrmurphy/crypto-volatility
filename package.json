@@ -1,0 +1,22 @@
+{
+  "name": "price_volatility",
+  "version": "1.0.0",
+  "description": "calculates the volatility of a crypto asset for a given timeframe",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/8bitstout/crypto-volatility.git"
+  },
+  "author": "Conor Murphy (8bitstout)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/8bitstout/crypto-volatility/issues"
+  },
+  "homepage": "https://github.com/8bitstout/crypto-volatility#readme",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
