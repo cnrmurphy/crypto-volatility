@@ -16,7 +16,7 @@ class Client {
 
   async getPriceSeries() {
     const url =
-      `https://data.messari.io/api/v1/assets/${this._asset}/metrics/price/time-series?start=2020-01-01&end=2020-02-01&interval=1d`;
+      `https://data.messari.io/api/v1/assets/${this._asset}/metrics/price/time-series?start=2019-01-01&end=2020-05-23&interval=1d`;
     
     try {
       return axios.get(url)

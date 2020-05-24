@@ -18,6 +18,8 @@
   "homepage": "https://github.com/8bitstout/crypto-volatility#readme",
   "dependencies": {
     "axios": "^0.19.2",
-    "enum": "^3.0.4"
+    "enum": "^3.0.4",
+    "mathjs": "^7.0.0",
+    "moment": "^2.26.0"
   }
 }
